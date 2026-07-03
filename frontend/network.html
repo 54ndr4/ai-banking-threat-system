@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Network Topology
+    </title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+
+        <div class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <i class="fa-solid fa-network-wired"></i>
+
+                <h2>
+                    AI SOC
+                </h2>
+
+            </div>
+
+            <a href="dashboard.html">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="network.html" class="active">
+
+                <i class="fa-solid fa-network-wired"></i>
+
+                Network
+
+            </a>
+
+            <a href="analysis.html">
+
+                <i class="fa-solid fa-brain"></i>
+
+                Analysis
+
+            </a>
+
+            <a href="reports.html">
+
+                <i class="fa-solid fa-file-shield"></i>
+
+                Reports
+
+            </a>
+
+            <a href="live-feed.html">
+
+                <i class="fa-solid fa-rss"></i>
+
+                Live Threat Feed
+
+            </a>
+
+            <button onclick="logout()">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+        </div>
+
+
+        <!-- MAIN -->
+
+        <div class="main-content">
+
+            <div class="navbar">
+
+                <div>
+
+                    <h1>
+                        Enterprise Banking Network
+                    </h1>
+
+                    <p>
+                        Real-time monitored infrastructure
+                    </p>
+
+                </div>
+
+                <div class="status-bar">
+
+                    <div class="live-status">
+                        <span class="dot"></span>
+                        LIVE
+                    </div>
+
+                    <div class="time-status">
+                        <span id="clock"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- NETWORK -->
+
+            <div class="network-panel full-network">
+
+                <div class="bank-network large">
+
+                    <div class="networkline l1"></div>
+                    <div class="networkline l2"></div>
+                    <div class="networkline l3"></div>
+                    <div class="networkline l4"></div>
+                    <div class="networkline l5"></div>
+
+                    <div class="bank-node infected">
+
+                        <i class="fa-solid fa-server"></i>
+
+                        <span>
+                            Core Banking
+                        </span>
+
+                    </div>
+
+                    <div class="bank-node safe">
+
+                        <i class="fa-solid fa-database"></i>
+
+                        <span>
+                            Main Database
+                        </span>
+
+                    </div>
+
+                    <div class="bank-node warning-node">
+
+                        <i class="fa-solid fa-building-columns"></i>
+
+                        <span>
+                            ATM Server
+                        </span>
+
+                    </div>
+
+                    <div class="bank-node infected">
+
+                        <i class="fa-solid fa-network-wired"></i>
+
+                        <span>
+                            SWIFT Gateway
+                        </span>
+
+                    </div>
+
+                    <div class="bank-node safe">
+
+                        <i class="fa-solid fa-cloud"></i>
+
+                        <span>
+                            Cloud Backup
+                        </span>
+
+                    </div>
+
+                    <div class="bank-node warning-node">
+
+                        <i class="fa-solid fa-fire"></i>
+
+                        <span>
+                            Firewall
+                        </span>
+
+                    </div>
+
+                    <div class="bank-node safe">
+
+                        <i class="fa-solid fa-brain"></i>
+
+                        <span>
+                            AI Engine
+                        </span>
+
+                    </div>
+
+                    <div class="bank-node safe">
+
+                        <i class="fa-solid fa-laptop"></i>
+
+                        <span>
+                            Workstations
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div class="logs-section">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Node Security Status
+                    </h2>
+
+                </div>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Node
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Security
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                Core Banking
+                            </td>
+
+                            <td>
+                                Online
+                            </td>
+
+                            <td style="color:red;">
+                                Critical
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Database Cluster
+                            </td>
+
+                            <td>
+                                Secure
+                            </td>
+
+                            <td style="color:#00ffaa;">
+                                Stable
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                SWIFT Gateway
+                            </td>
+
+                            <td>
+                                Monitoring
+                            </td>
+
+                            <td style="color:orange;">
+                                High
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/simulation.js"></script>
+
+</body>
+
+</html>

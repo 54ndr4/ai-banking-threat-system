@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        AI Banking Security Dashboard
+    </title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- SIDEBAR -->
+
+        <div class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <h2>
+                    AI SOC
+                </h2>
+
+            </div>
+
+            <a href="dashboard.html" class="active">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="network.html">
+
+                <i class="fa-solid fa-network-wired"></i>
+
+                Network
+
+            </a>
+
+            <a href="analysis.html">
+
+                <i class="fa-solid fa-brain"></i>
+
+                Analysis
+
+            </a>
+
+            <a href="reports.html">
+
+                <i class="fa-solid fa-file-shield"></i>
+
+                Reports
+
+            </a>
+
+            <a href="live-feed.html">
+
+                <i class="fa-solid fa-rss"></i>
+
+                Live Threat Feed
+
+            </a>
+
+            <button onclick="logout()">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+        </div>
+
+
+        <!-- MAIN -->
+
+        <div class="main-content">
+
+            <!-- TOPBAR -->
+
+            <div class="navbar">
+
+                <div>
+
+                    <h1>
+                        Banking Threat Security Center
+                    </h1>
+
+                    <p>
+                        AI Powered Cyber Defense Infrastructure
+                    </p>
+
+                </div>
+
+                <div class="status-bar">
+
+                    <div class="live-status">
+                        <span class="dot"></span>
+                        LIVE
+                    </div>
+
+                    <div class="time-status">
+                        <span id="clock"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- STATS -->
+
+            <div class="top-cards">
+
+                <div class="card danger">
+
+                    <h3>
+                        Threat Level
+                    </h3>
+
+                    <p id="threatLevel">
+                        CRITICAL
+                    </p>
+
+                </div>
+
+                <div class="card warning">
+
+                    <h3>
+                        Active Threats
+                    </h3>
+
+                    <p>
+                        18
+                    </p>
+
+                </div>
+
+                <div class="card success">
+
+                    <h3>
+                        Risk Score
+                    </h3>
+
+                    <p id="riskScore">
+                        91%
+                    </p>
+
+                </div>
+
+                <div class="card info">
+
+                    <h3>
+                        Protected Nodes
+                    </h3>
+
+                    <p>
+                        12
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- GRID -->
+
+            <div class="dashboard-grid">
+
+                <!-- GLOBAL ATTACK MAP -->
+
+                <div class="network-panel">
+
+                    <div class="panel-header">
+                        <h2>Global Cyber Attack Map</h2>
+                    </div>
+
+                    <div class="world-map">
+
+                        <div class="threat-dot usa"></div>
+                        <div class="threat-dot europe"></div>
+                        <div class="threat-dot asia"></div>
+
+                        <div class="attack-label usa-label">
+                            USA → Banking API
+                        </div>
+
+                        <div class="attack-label eu-label">
+                            Germany → SWIFT Gateway
+                        </div>
+
+                        <div class="attack-label asia-label">
+                            China → ATM Network
+                        </div>
+
+                    </div>
+
+                    <div class="threat-stats">
+
+                        <div class="stat-card">
+                            <h4>Top Attack</h4>
+                            <p>SWIFT Manipulation</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <h4>Target Node</h4>
+                            <p>Core Banking</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <h4>Countries</h4>
+                            <p>14</p>
+                        </div>
+
+                        <div class="stat-card">
+                            <h4>Threats Blocked</h4>
+                            <p>347</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- AI STATUS -->
+
+                <div class="right-panel">
+
+                    <!-- AI STATUS -->
+                    <div class="logs-section ai-status-bar">
+
+                        <div class="status-item">
+                            <span>AI Engine</span>
+                            <strong style="color:#00ffaa;">ACTIVE</strong>
+                        </div>
+
+                        <div class="status-item">
+                            <span>Firewall</span>
+                            <strong style="color:orange;">MONITORING</strong>
+                        </div>
+
+                        <div class="status-item">
+                            <span>SWIFT Gateway</span>
+                            <strong style="color:red;">THREAT DETECTED</strong>
+                        </div>
+
+                        <div class="status-item">
+                            <span>SOC Status</span>
+                            <strong style="color:#00ffaa;">OPERATIONAL</strong>
+                        </div>
+
+                    </div>
+
+                    <!-- TERMINAL -->
+
+                    <div class="logs-section terminal-panel">
+
+                        <div class="panel-header">
+                            <h2>AI Security Terminal</h2>
+                        </div>
+
+                        <div id="terminal"></div>
+
+                    </div>
+
+                    <!-- BUTTON -->
+
+                    <div class="logs-section">
+
+                        <button id="simulateBtn">
+                            Run AI Simulation
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/simulation.js"></script>
+
+</body>
+
+</html>

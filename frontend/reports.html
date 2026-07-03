@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Threat Reports
+    </title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/dashboard.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <div class="sidebar">
+
+            <div class="sidebar-logo">
+
+                <i class="fa-solid fa-file-shield"></i>
+
+                <h2>
+                    AI SOC
+                </h2>
+
+            </div>
+
+            <a href="dashboard.html">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="network.html">
+
+                <i class="fa-solid fa-network-wired"></i>
+
+                Network
+
+            </a>
+
+            <a href="analysis.html">
+
+                <i class="fa-solid fa-brain"></i>
+
+                Analysis
+
+            </a>
+
+            <a href="reports.html" class="active">
+
+                <i class="fa-solid fa-file-shield"></i>
+
+                Reports
+
+            </a>
+
+            <a href="live-feed.html">
+
+                <i class="fa-solid fa-rss"></i>
+
+                Live Threat Feed
+
+            </a>
+
+            <button onclick="logout()">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                Logout
+
+            </button>
+
+        </div>
+
+
+        <!-- MAIN -->
+
+        <div class="main-content">
+
+            <div class="navbar">
+
+                <div>
+
+                    <h1>
+                        Threat Intelligence Reports
+                    </h1>
+
+                    <p>
+                        Enterprise banking incident reports
+                    </p>
+
+                </div>
+
+
+
+                <div class="status-bar">
+
+                    <div class="live-status">
+                        <span class="dot"></span>
+                        LIVE
+                    </div>
+
+                    <div class="time-status">
+                        <span id="clock"></span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- REPORT CARDS -->
+
+            <div class="top-cards">
+
+                <div class="card danger">
+
+                    <h3>
+                        Total Incidents
+                    </h3>
+
+                    <p id="totalIncidents">0</p>
+
+                </div>
+
+                <div class="card warning">
+
+                    <h3>
+                        Critical Threats
+                    </h3>
+
+                    <p id="criticalThreats">0</p>
+
+                </div>
+
+                <div class="card success">
+
+                    <h3>
+                        Resolved Threats
+                    </h3>
+
+                    <p id="resolvedThreats">0</p>
+
+                </div>
+
+                <div class="card info">
+
+                    <h3>
+                        Security Score
+                    </h3>
+
+                    <p id="securityScore">0%</p>
+
+                </div>
+
+            </div>
+
+
+            <!-- REPORT TABLE -->
+
+            <div class="logs-section">
+
+                <div class="panel-header">
+
+                    <h2>
+                        Incident Reports
+                    </h2>
+
+                </div>
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Incident
+                            </th>
+
+                            <th>
+                                System
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Severity
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                ATM Malware Attack
+                            </td>
+
+                            <td>
+                                ATM Server
+                            </td>
+
+                            <td>
+                                Contained
+                            </td>
+
+                            <td style="color:red;">
+                                Critical
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                SWIFT Intrusion
+                            </td>
+
+                            <td>
+                                SWIFT Gateway
+                            </td>
+
+                            <td>
+                                Monitoring
+                            </td>
+
+                            <td style="color:orange;">
+                                High
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                Database Breach Attempt
+                            </td>
+
+                            <td>
+                                Core Database
+                            </td>
+
+                            <td>
+                                Blocked
+                            </td>
+
+                            <td style="color:#00ffaa;">
+                                Medium
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <button onclick="downloadReport()" class="download-btn">
+                <i class="fa-solid fa-download"></i>
+                Download Security Report
+            </button>
+
+        </div>
+
+    </div>
+
+    <script>
+        function downloadReport() {
+
+            const report = `
+==============================
+AI SOC SECURITY REPORT
+==============================
+
+Generated: ${new Date().toLocaleString()}
+
+TOTAL INCIDENTS: ${totalIncidents}
+CRITICAL THREATS: ${criticalThreats}
+HIGH THREATS: ${highThreats}
+SECURITY SCORE: ${securityScore}
+
+INCIDENTS
+--------------------------------
+
+ATM Malware Attack
+System: ATM Server
+Status: Contained
+Severity: Critical
+
+SWIFT Intrusion
+System: SWIFT Gateway
+Status: Monitoring
+Severity: High
+
+Database Breach Attempt
+System: Core Database
+Status: Blocked
+Severity: Medium
+
+--------------------------------
+Generated by AI SOC Platform
+`;
+
+            const blob = new Blob([report], {
+                type: "text/plain"
+            });
+
+            const link = document.createElement("a");
+
+            link.href = URL.createObjectURL(blob);
+
+            link.download =
+                `AI_SOC_Report_${Date.now()}.txt`;
+
+            link.click();
+        }
+
+        const logs =
+            JSON.parse(
+                localStorage.getItem("threatLogs")
+            ) || [];
+
+        const totalIncidents =
+            logs.length;
+
+        const criticalThreats =
+            logs.filter(
+                log => log.severity === "CRITICAL"
+            ).length;
+
+        const highThreats =
+            logs.filter(
+                log => log.severity === "HIGH"
+            ).length;
+
+        const securityScore =
+            Math.max(
+                70,
+                100 - totalIncidents
+            ) + "%";
+    </script>
+
+    <script>
+
+        function updateReportCards() {
+
+            const logs =
+                JSON.parse(
+                    localStorage.getItem(
+                        "threatLogs"
+                    )
+                ) || [];
+
+            document.getElementById(
+                "totalIncidents"
+            ).innerText =
+                logs.length;
+
+            document.getElementById(
+                "criticalThreats"
+            ).innerText =
+                logs.filter(
+                    log =>
+                        log.severity === "CRITICAL"
+                ).length;
+
+            document.getElementById(
+                "resolvedThreats"
+            ).innerText =
+                Math.floor(
+                    logs.length * 0.7
+                );
+
+            document.getElementById(
+                "securityScore"
+            ).innerText =
+                (
+                    Math.max(
+                        70,
+                        100 - logs.length
+                    )
+                ) + "%";
+        }
+
+        updateReportCards();
+
+        setInterval(
+            updateReportCards,
+            3000
+        );
+
+    </script>
+
+    <script src="js/app.js"></script>
+
+    <script src="js/simulation.js"></script>
+
+</body>
+
+</html>

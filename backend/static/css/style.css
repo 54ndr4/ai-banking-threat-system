@@ -598,16 +598,6 @@ button:hover {
     }
 }
 
-.page-dashboard {
-    height: 100vh;
-    overflow: hidden;
-}
-
-.page-network {
-    height: 100vh;
-    overflow: hidden;
-}
-
 .page-analysis {
     height: 100vh;
     overflow: hidden;

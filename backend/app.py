@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 import mysql.connector
 import random
+import os
 
 app = Flask(__name__)
 
@@ -14,7 +15,11 @@ CORS(app)
 def get_db_connection():
 
     connection = mysql.connector.connect(
-        host="localhost", user="root", password="", database="ai_threat_system"
+        host=os.getenv("MYSQLHOST"),
+        user=os.getenv("MYSQLUSER"),
+        password=os.getenv("MYSQLPASSWORD"),
+        database=os.getenv("MYSQLDATABASE"),
+        port=int(os.getenv("MYSQLPORT")),
     )
 
     return connection

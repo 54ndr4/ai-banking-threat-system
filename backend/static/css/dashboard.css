@@ -971,8 +971,3 @@ body.alert-mode {
 .logs-section button#simulateBtn {
     margin-top: 0;
 }
-
-.page-dashboard {
-    height: 100vh;
-    overflow: hidden;
-}

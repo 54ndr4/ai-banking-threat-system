@@ -350,7 +350,7 @@ setInterval(
 
     runSimulation,
 
-    1000
+    25000
 );
 
 

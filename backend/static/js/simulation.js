@@ -472,4 +472,4 @@ async function loadAnalysis() {
 
 loadAnalysis();
 
-setInterval(loadAnalysis, 10000);
+setInterval(loadAnalysis, 1000);

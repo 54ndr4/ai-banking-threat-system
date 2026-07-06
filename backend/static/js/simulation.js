@@ -310,7 +310,7 @@ animateCounters();
 async function loadAnalysis() {
 
     const response =
-        await fetch("http://127.0.0.1:5000/attack");
+        await fetch("/attack");
 
     const data =
         await response.json();

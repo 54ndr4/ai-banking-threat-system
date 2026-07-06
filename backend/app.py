@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_cors import CORS
 import mysql.connector
 import random
@@ -25,9 +25,7 @@ def get_db_connection():
 
 @app.route("/")
 def home():
-
-    return {"message": "AI Banking Threat Security System Running"}
-
+    return render_template("index.html")
 
 # LOGIN
 
@@ -64,6 +62,32 @@ def login():
 
     return jsonify({"success": False, "message": "Invalid credentials"})
 
+
+# PAGES
+
+@app.route("/dashboard")
+def dashboard():
+    return render_template("dashboard.html")
+
+
+@app.route("/network")
+def network():
+    return render_template("network.html")
+
+
+@app.route("/analysis")
+def analysis():
+    return render_template("analysis.html")
+
+
+@app.route("/reports")
+def reports():
+    return render_template("reports.html")
+
+
+@app.route("/live-feed")
+def live_feed():
+    return render_template("live-feed.html")
 
 # THREAT LOGS
 

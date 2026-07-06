@@ -27,7 +27,7 @@ if (loginBtn) {
                 const response =
                     await fetch(
 
-                        "http://127.0.0.1:5000/login",
+                        "/login",
 
                         {
 
@@ -60,7 +60,7 @@ if (loginBtn) {
                     );
 
                     window.location.href =
-                        "dashboard.html";
+                        "/dashboard";
 
                 } else {
 
@@ -92,31 +92,15 @@ if (loginBtn) {
 
 function checkLogin() {
 
-    const loggedIn =
-
-        localStorage.getItem(
-
-            "adminLoggedIn"
-        );
+    const loggedIn = localStorage.getItem("adminLoggedIn");
 
     if (
-
-        loggedIn !== "true"
-
-        &&
-
-        !window.location.pathname.includes(
-            "index.html"
-        )
-
+        loggedIn !== "true" &&
+        window.location.pathname !== "/"
     ) {
-
-        window.location.href =
-            "index.html";
+        window.location.href = "/";
     }
 }
-
-checkLogin();
 
 
 /* LOGOUT */
@@ -126,7 +110,7 @@ function logout() {
     localStorage.clear();
 
     window.location.href =
-        "index.html";
+        "/";
 }
 
 
@@ -164,7 +148,7 @@ async function loadAIRecommendations() {
         const response =
             await fetch(
 
-                "http://127.0.0.1:5000/ai"
+                "/ai"
             );
 
         const data =
@@ -299,7 +283,7 @@ async function runSimulation() {
         const response =
             await fetch(
 
-                "http://127.0.0.1:5000/attack"
+                "/attack"
             );
 
         const data =

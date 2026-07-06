@@ -11,9 +11,9 @@
         AI Threat Analysis
     </title>
 
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
@@ -35,7 +35,7 @@
 
             </div>
 
-            <a href="dashboard.html">
+            <a href="/dashboard" class="active">
 
                 <i class="fa-solid fa-chart-line"></i>
 
@@ -43,7 +43,7 @@
 
             </a>
 
-            <a href="network.html">
+            <a href="/network">
 
                 <i class="fa-solid fa-network-wired"></i>
 
@@ -51,7 +51,7 @@
 
             </a>
 
-            <a href="analysis.html" class="active">
+            <a href="/analysis">
 
                 <i class="fa-solid fa-brain"></i>
 
@@ -59,7 +59,7 @@
 
             </a>
 
-            <a href="reports.html">
+            <a href="/reports">
 
                 <i class="fa-solid fa-file-shield"></i>
 
@@ -67,7 +67,7 @@
 
             </a>
 
-            <a href="live-feed.html">
+            <a href="/live-feed">
 
                 <i class="fa-solid fa-rss"></i>
 
@@ -232,9 +232,9 @@
 
     </div>
 
-    <script src="js/app.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
 
-    <script src="js/simulation.js"></script>
+    <script src="{{ url_for('static', filename='js/simulation.js') }}"></script>
 
 </body>
 

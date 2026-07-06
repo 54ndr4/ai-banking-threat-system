@@ -562,3 +562,38 @@ button:hover {
 
     color: #00ffaa;
 }
+
+@media (max-width:768px){
+
+    .layout{
+        flex-direction:column;
+    }
+
+    .sidebar{
+        width:100%;
+        height:auto;
+    }
+
+    .dashboard-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .chart-container{
+        width:100%;
+    }
+
+    table{
+        width:100%;
+        overflow-x:auto;
+        display:block;
+    }
+
+    img{
+        max-width:100%;
+        height:auto;
+    }
+}

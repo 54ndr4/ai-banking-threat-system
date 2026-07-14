@@ -191,7 +191,7 @@ function runSimulation() {
                 "alert-mode"
             );
 
-        }, 4000);
+        }, 10000);
     }
 
     const riskScore =
@@ -472,4 +472,4 @@ async function loadAnalysis() {
 
 loadAnalysis();
 
-setInterval(loadAnalysis, 2500);
+setInterval(loadAnalysis, 9000);

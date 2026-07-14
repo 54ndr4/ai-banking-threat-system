@@ -149,7 +149,7 @@ setInterval(() => {
         randomMessage
     );
 
-}, 1000);
+}, 4000);
 
 
 

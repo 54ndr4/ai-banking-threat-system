@@ -202,7 +202,7 @@ setInterval(
 
     loadAIRecommendations,
 
-    8000
+    10000
 );
 
 
